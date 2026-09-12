@@ -8,10 +8,88 @@
     <artifactId>Pokramadores</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <scm>
+        <connection>scm:git:https://github.com/MadureiraHenrique/Pokramadores.git</connection> <!-- -->
+        <developerConnection>scm:git:git@github.com:MadureiraHenrique/Pokramadores.git</developerConnection> <!-- -->
+        <url>https://github.com/MadureiraHenrique/Pokramadores</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>reynanf</id>
+            <name>Reynan Ferreira</name>
+            <email>reynandan11@gmail.com</email>
+            <roles>
+                <role>Software engineering student</role>
+            </roles>
+        </developer>
+        <!-- Adicione o de vcs -->
+        <developer>
+            <id>github_colega</id>
+            <name>Nome do Colega</name>
+            <email>colega@exemplo.com</email>
+            <roles>
+                <role>Software engineering student</role>
+            </roles>
+        </developer>
+    </developers>
+
     <properties>
         <maven.compiler.source>25</maven.compiler.source>
         <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <!-- JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Mockito Core  -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>5.11.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--  Mockito + JUnit 5 -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>5.11.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <configLocation>google_checks.xml</configLocation>
+                    <encoding>UTF-8</encoding>
+                    <consoleOutput>true</consoleOutput>
+                    <failsOnError>true</failsOnError> <!-- Interrompe a build se houver erro de estilo -->
+                    <linkXRef>false</linkXRef>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
